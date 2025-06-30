@@ -48,8 +48,8 @@ chat-app-backend/
 ### 🧬 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/chat-app-backend.git
-cd chat-app-backend
+git clone https://github.com/asmit557/Tawk-Backend.git
+cd Tawk-Backend
 ```
 
 ### 📥 Install Dependencies
