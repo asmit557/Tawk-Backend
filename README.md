@@ -1,154 +1,145 @@
-# 📡 Chat App Backend – Real-time Messaging Engine
+# 💬 Chat App Backend – Real-Time Conversations with Socket.IO & ZEGOCLOUD ⚡
 
-![Socket.IO](https://img.shields.io/badge/Socket.io-RealTime-blue?logo=socket.io)
-![ZEGOCLOUD](https://img.shields.io/badge/ZEGOCLOUD-Voice%2FVideo%20SDK-blueviolet)
-![Express](https://img.shields.io/badge/Express.js-Backend-lightgrey)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
-
-> ⚡ Powering the backend of a modern **React + Socket.IO** chat application with **ZEGOCLOUD** integration for voice and video calling, strong authentication, real-time messaging, and robust security layers.
+> Scalable and secure backend for a real-time chat application. Built with **Express.js**, integrated with **Socket.IO** for live messaging, and powered by **ZEGOCLOUD** for voice/video communication.
 
 ---
 
-## 📦 Tech Stack
+## 🌐 Frontend Repository
 
-* 🚀 **Express.js** for routing & middleware
-* 🗃️ **MongoDB + Mongoose** for database management
-* 🔐 **JWT Authentication** with cookie-based session
-* 📲 **Socket.IO** for WebSocket communication
-* 🎥 **ZEGOCLOUD** for real-time video/audio calls
-* 📤 **SendGrid** for email functionality (OTP, verification)
-* 🔐 Security middleware: **Helmet**, **XSS-Clean**, **MongoSanitize**, **RateLimiter**
+👉 [Chat App Frontend (React)](https://github.com/asmit557/Tawk-React-Chat-App-)
 
 ---
 
-## 🗂️ Project Structure
+## 🛠️ Tech Stack
 
-```
-chat-app-backend/
-├── controllers/
-├── models/
-├── routes/
-├── utils/
-├── server.js
-├── .env
-└── package.json
-```
+* 🖥️ **Node.js + Express.js**
+* 🧱 **MongoDB + Mongoose**
+* 🧩 **Socket.IO** – Real-time bidirectional event-based communication
+* 📡 **ZEGOCLOUD** – Audio & video conferencing
+* 🔐 **JWT Auth + bcryptjs** for authentication
+* 🧼 **Security Middlewares**: Helmet, xss-clean, express-rate-limit, mongo-sanitize
+* 📧 **SendGrid** for email services
 
 ---
 
-## 🚀 Installation & Setup
+## 🔐 Features
+
+* ✅ **JWT Authentication**
+* 🔒 **Secure Password Hashing** with bcryptjs
+* 🛡️ **Rate Limiting, XSS, & NoSQL Injection Protection**
+* 🧼 **Cookie Sessions & Parser**
+* 📩 **OTP Verification** (otp-generator)
+* 📨 **Email Service** via SendGrid
+* 🧭 **Cross-Origin Access** with CORS
+* 📊 **Logging Middleware** with Morgan
+* 🔌 **Real-Time Messaging** with Socket.IO
+* 🎥 **ZEGOCLOUD Integration** (Frontend uses SDK for video/audio calls)
+
+---
+
+## 🚀 Getting Started
 
 ### 🔧 Prerequisites
 
-* Node.js v16+
-* MongoDB instance (local/cloud)
-* ZEGOCLOUD App ID & Server Secret
-* SendGrid API Key
+* Node.js v18+
+* MongoDB instance
+* ZEGOCLOUD account
+* SendGrid API key
 
-### 🧬 Clone the Repository
+### 📦 Clone the Repository
 
 ```bash
 git clone https://github.com/asmit557/Tawk-Backend.git
 cd Tawk-Backend
 ```
 
-### 📥 Install Dependencies
+### 🛠️ Install Dependencies
 
 ```bash
 npm install
 ```
 
-### ⚙️ Environment Variables
+### 📁 Set Up Environment Variables
 
-Create a `.env` file in the root:
+Create a `.env` file in the root with the following:
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_connection
+MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
-ZEGOCLOUD_APP_ID=your_app_id
-ZEGOCLOUD_SERVER_SECRET=your_server_secret
 SENDGRID_API_KEY=your_sendgrid_key
+CLIENT_URL=http://localhost:3000
 ```
 
----
-
-## 💻 Start the Server
+### 🏁 Start the Server (Dev Mode)
 
 ```bash
 npm start
 ```
 
-> Starts in development mode using `nodemon` (defined in `start` script)
+> Make sure MongoDB is running and `.env` is properly configured.
 
 ---
 
-## 🔐 Features
+## 🧪 API Endpoints (Summary)
 
-### 👥 Authentication
+| Method | Endpoint               | Description                  |
+| ------ | ---------------------- | ---------------------------- |
+| POST   | /api/auth/register     | Register a new user          |
+| POST   | /api/auth/login        | Login with credentials       |
+| GET    | /api/users/me          | Get current user info        |
+| POST   | /api/otp/verify        | OTP verification endpoint    |
+| GET    | /api/messages/\:roomId | Get messages for a chat room |
 
-* JWT token generation & verification
-* Cookie-based session management
-* OTP verification via SendGrid
-* Password hashing with bcrypt
-
-### 💬 Real-Time Messaging
-
-* WebSocket events using Socket.IO
-* User online/offline tracking
-* Room creation and message broadcasting
-
-### 📹 ZEGOCLOUD Integration
-
-* Voice & video call room support
-* Token generation and verification with AppID & secret
-
-### 🛡️ Security Middleware
-
-* `helmet`: Sets security headers
-* `xss-clean`: Prevents cross-site scripting
-* `express-rate-limit`: Rate limiting on sensitive routes
-* `express-mongo-sanitize`: NoSQL injection prevention
+More detailed documentation coming soon...
 
 ---
 
-## 🧪 Development Scripts
+## 📚 Notable Packages
 
-| Script      | Description                             |
-| ----------- | --------------------------------------- |
-| `npm start` | Run backend in dev mode using `nodemon` |
-
----
-
-## 🧰 Notable Packages
-
-| Package                  | Purpose                                |
-| ------------------------ | -------------------------------------- |
-| `socket.io`              | Real-time bi-directional communication |
-| `bcryptjs`               | Password hashing                       |
-| `jsonwebtoken`           | Auth token generation & validation     |
-| `express-mongo-sanitize` | Prevent Mongo injection                |
-| `helmet`                 | Adds security headers                  |
-| `xss-clean`              | XSS protection                         |
-| `express-rate-limit`     | Rate limiting                          |
-| `@sendgrid/mail`         | Email delivery                         |
-| `dotenv`                 | Environment variables                  |
+| Package                | Use Case                             |
+| ---------------------- | ------------------------------------ |
+| **socket.io**          | Real-time messaging engine           |
+| **mongoose**           | MongoDB object modeling              |
+| **helmet**             | Secures Express apps                 |
+| **xss-clean**          | Prevent XSS attacks                  |
+| **express-rate-limit** | Limit API usage to avoid brute force |
+| **cookie-session**     | Lightweight session store            |
+| **@sendgrid/mail**     | Email sending                        |
+| **dotenv**             | Environment config                   |
+| **cors**               | Enable cross-origin access           |
 
 ---
 
-## 🛠️ Upcoming Features
+## 👥 Contributing
 
-* [ ] Message deletion/edit support
-* [ ] Group chat support with admins
-* [ ] ZEGOCLOUD call history logging
-* [ ] Admin dashboard
+We welcome pull requests and feedback! Feel free to fork this repo and submit PRs.
 
 ---
 
-## 📜 License
+## 📄 License
 
-Licensed under the ISC License. © 2024 Asmit Verma
+This project is licensed under the **ISC License**.
 
 ---
 
-Made with 💬 and ⚡ by [Asmit Verma](https://github.com/asmit557)
+## 🙌 Acknowledgements
+
+Special thanks to:
+
+* [Socket.IO](https://socket.io)
+* [ZEGOCLOUD](https://www.zegocloud.com)
+* [MongoDB](https://www.mongodb.com)
+* [SendGrid](https://sendgrid.com)
+
+---
+
+## 🌟 Support the Project
+
+If you like this project, please consider starring it:
+
+[![GitHub Stars](https://img.shields.io/github/stars/asmit557/Tawk-Backend?style=social)](https://github.com/asmit557/Tawk-Backend)
+
+---
+
+Made with ❤️ by [Asmit Verma](https://github.com/asmit557)
